@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BERNABÉU ELEVEN — Em Busca da Glória</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="top">
+  <!-- BOTÃO DA LOGO INTEGRADO COM A IMAGEM DO ESCUDO (TAMANHO 96px) -->
+  <button class="logo-btn" onclick="backToLandingPage()" title="Voltar ao Início">
+    <div class="logo">
+      <img src="https://logos-world.net/wp-content/uploads/2020/06/Real-Madrid-Logo.png" alt="Escudo Real Madrid" style="width: 100%; height: 100%; object-fit: contain;">
+    </div>
+  </button>
+  <h1>Bernabéu Eleven</h1>
+  <div class="subtitle"><span class="diamond"></span>Em Busca da Glória<span class="diamond"></span></div>
+</div>
+
+<!-- LANDING PAGE / SOBRE O PROJETO -->
+<div class="about-section" id="aboutSection">
+  <h2> Sobre o Bernabéu Eleven</h2>
+  <p class="about-text" style="margin-bottom: 12px;">
+    Monte um "XI Inicial" histórico do Real Madrid misturando elencos épicos de diferentes gerações. Conquiste a glória da UEFA Champions League escalando seus jogadores favoritos de forma tática. Defina seu capitão, configure seu batedor de pênaltis e de faltas, e simule o torneio desde a difícil fase de grupos até a grande final!
+  </p>
+
+  <!-- PAINEL DE AUTENTICAÇÃO E SALAS MULTIPLAYER -->
+  <div class="auth-box">
+    <div id="authForm">
+      <h3> Painel de Entrada (Salvo Localmente)</h3>
+      <p style="font-size:11px; color:var(--muted); margin-bottom:12px;">
+        Entre com seu apelido para deixar registrado no seu navegador e habilitar o visual do menu!
+      </p>
+      <div class="input-group">
+        <input type="text" id="usernameInput" placeholder="Seu apelido (ex: Tadeu)">
+        <input type="password" id="passwordInput" placeholder="Senha de acesso">
+      </div>
+      <button class="primary" style="padding: 6px 12px; font-size: 10px;" onclick="handleLoginSubmit()">Entrar / Cadastrar</button>
+    </div>
+
+    <div id="loggedProfile" class="hidden">
+      <div class="profile-badge">
+        <span>Jogador: <b id="profileName">Tadeu</b> | Conexão: <b style="color:#96731f;">Perfil Ativo </b></span>
+        <button class="ghost" style="padding: 4px 8px; font-size: 9px;" onclick="handleLogout()">Sair</button>
+      </div>
+      <div class="input-group" id="roomCreationGroup">
+        <input type="text" id="roomCodeInput" placeholder="Código da sala para conectar">
+        <button class="primary" style="padding: 6px 12px; font-size: 10px;" onclick="handleJoinRoom()">Entrar em Sala</button>
+        <button class="primary" style="padding: 6px 12px; font-size: 10px; border-color: #4b2e6f; background:#4b2e6f;" onclick="handleCreateRoom()">Criar Nova Sala</button>
+      </div>
+      <p id="multiplayerStatus" style="font-size: 11px; color: var(--gold-bright); text-align: center; font-weight: bold;"></p>
+    </div>
+  </div>
+
+  <div class="rules-grid">
+    <div class="rule-card">
+      <h4> Sorteio Dinâmico &amp; Versatilidade</h4>
+      <p>A cada rodada de draft, um ano campeão é sorteado. Mude jogadores de múltiplas posições livremente!</p>
+    </div>
+    <div class="rule-card">
+      <h4> Modo Clássico vs. Almanaque</h4>
+      <p>Jogue vendo os ratings (OVR) de cada jogador ou encare o modo ("Almanaque") com atributos ocultos.</p>
+    </div>
+    <div class="rule-card">
+      <h4> Prorrogação e Pênaltis</h4>
+      <p>Decisões de tirar o fôlego! Da Pré-Oitavas à Semifinal, o mata-mata é em ida e volta — se empatar no agregado dos dois jogos, tem prorrogação de 30 minutos e, se persistir, pênaltis. A Final é jogo único em campo neutro.</p>
+    </div>
+    <div class="rule-card">
+      <h4> Novas Posições Táticas</h4>
+      <p>Desenvolva estratégias usando posições refinadas: Segundo Atacante (SA), Meia Esquerda (ME) e Meia Direita (MD).</p>
+    </div>
+    <div class="rule-card">
+      <h4> Craque da Partida (MVP)</h4>
+      <p>Gol no comecinho do jogo vale mais que no finalzinho, e gols numa goleada já resolvida valem menos. Cartão amarelo tira ponto do craque. Um jogador pode ser eleito MVP várias vezes na campanha!</p>
+    </div>
+    <div class="rule-card">
+      <h4> Batedor de Falta</h4>
+      <p>Além do capitão e do batedor de pênalti, escolha quem cobra as faltas. A chance de gol de falta depende da habilidade de cada craque real do elenco.</p>
+    </div>
+  </div>
+
+  <!-- CRÉDITOS AUTORAIS -->
+  <div class="dev-credits">
+    <h3> Ficha Técnica do Projeto</h3>
+    <p>Este simulador tático de alto desempenho é um ambiente experimental de jogo independente desenvolvido de forma autoral por: <b>Tadeu Henrique</b>.</p>
+    <p style="margin-top: 10px; font-size: 11px; color: var(--muted); font-style: italic;">
+        "Este jogo foi inspirado no lendário <b>7x0</b>, um clássico game em formato de planilha que eu adorava. Como sou apaixonado pelo Real Madrid, desenvolvi este tributo focado na trajetória do clube na Champions League."
+    </p>
+    <div class="dev-badges" style="margin-top:10px;">
+      <span class="badge-dev"> Tadeu Henrique</span>
+      <span class="badge-dev"> TSI - IFPE Igarassu</span>
+    </div>
+  </div>
+
+  <div class="action-buttons">
+    <button class="primary" style="font-size: 13px; padding: 12px 24px;" onclick="startDraftFlow()">Iniciar Draft (Modo Solo)</button>
+  </div>
+</div>
+
+<!-- CONTAINER DE GAMEPLAY -->
+<div class="game-container hidden" id="gameplayContainer">
+  <div class="wrap">
+    <!-- COLUNA DA ESQUERDA: JOGO E DRAFT -->
+    <div class="col-left">
+      <div class="panel" id="optionsPanel">
+        <h2><span class="num">1</span>Opções de Jogo</h2>
+        <div class="hint">Ajuste seu desafio antes de começar a girar!</div>
+        <div class="setup-container">
+          
+          <!-- Dificuldade -->
+          <div class="setup-group">
+            <label>Dificuldade</label>
+            <div class="custom-select-wrapper" id="customDifficultySelect">
+              <div class="custom-select-trigger" id="difficultyTrigger">Médio</div>
+              <div class="custom-options">
+                <div class="custom-option" data-value="easy">Fácil</div>
+                <div class="custom-option selected" data-value="medium">Médio</div>
+                <div class="custom-option" data-value="hard">Difícil</div>
+                <div class="custom-option" data-value="champion">Lendário</div>
+              </div>
+            </div>
+            <select id="difficultySelect" class="hidden">
+              <option value="easy">Fácil</option>
+              <option value="medium" selected>Médio</option>
+              <option value="hard">Difícil</option>
+              <option value="champion">Lendário</option>
+            </select>
+          </div>
+
+          <!-- Velocidade do Jogo -->
+          <div class="setup-group">
+            <label>Velocidade do Jogo</label>
+            <div class="custom-select-wrapper" id="customSpeedSelect">
+              <div class="custom-select-trigger" id="speedTrigger">Rápido</div>
+              <div class="custom-options">
+                <div class="custom-option" data-value="115">Padrão</div>
+                <div class="custom-option selected" data-value="40">Rápido</div>
+                <div class="custom-option" data-value="10">Ultra Rápido</div>
+              </div>
+            </div>
+            <select id="speedSelect" class="hidden">
+              <option value="115">Padrão</option>
+              <option value="40" selected>Rápido</option>
+              <option value="10">Ultra Rápido</option>
+            </select>
+          </div>
+
+          <!-- Modo de Draft -->
+          <div class="setup-group">
+            <label>Modo de Draft</label>
+            <div class="custom-select-wrapper" id="customDraftModeSelect">
+              <div class="custom-select-trigger" id="draftModeTrigger">Clássico</div>
+              <div class="custom-options">
+                <div class="custom-option selected" data-value="classic">Clássico</div>
+                <div class="custom-option" data-value="almanac">Almanaque</div>
+              </div>
+            </div>
+            <select id="draftModeSelect" class="hidden">
+              <option value="classic" selected>Clássico</option>
+              <option value="almanac">Almanaque</option>
+            </select>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="panel" id="draftPanel">
+        <h2><span class="num">2</span>Sorteie e escolha</h2>
+        <div class="hint">A cada rodada, um elenco do Real Madrid é sorteado. Escolha um craque para a posição livre.</div>
+        <div class="round-tag" id="roundTag">Rodada 1 de 11</div>
+        <div class="row" style="margin-bottom: 12px;">
+          <button class="primary" id="rollBtn">Rolar elenco</button>
+          <button class="ghost" id="resetBtn">Recomeçar</button>
+          <span class="lock-msg" id="lockMsg"></span>
+        </div>
+        <div class="squads" id="squadsBox"></div>
+      </div>
+
+      <!-- PAINEL DE MISSÕES (QUESTS) DINÂMICAS -->
+      <div class="panel" id="questsPanel">
+        <h2>Quests de Treinador</h2>
+        <div class="hint">Desafios técnicos que mudam a cada reinício de draft!</div>
+        <div class="quests-container" id="questsBox"></div>
+      </div>
+
+      <div class="panel hidden" id="rolesPanel">
+        <h2><span class="num">4</span>Capitão, pênalti &amp; falta</h2>
+        <div class="hint">Escolha quem veste a braçadeira, quem bate o pênalti decisivo e quem cobra as faltas.</div>
+        <div style="margin-bottom:6px;font-size:12px;color:var(--gold-bright);font-weight:600">Capitão</div>
+        <div class="pick-list" id="captainList"></div>
+        <div style="margin:14px 0 6px;font-size:12px;color:var(--gold-bright);font-weight:600">Batedor de pênalti</div>
+        <div class="pick-list" id="penaltyList"></div>
+        <div style="margin:14px 0 6px;font-size:12px;color:var(--gold-bright);font-weight:600">Batedor de falta</div>
+        <div class="pick-list" id="freekickList"></div>
+        <div class="row" style="margin-top:18px">
+          <button class="primary" id="simBtn" disabled>Iniciar campanha</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- COLUNA DA DIREITA: CAMPO, CHAVE E CAMPANHA -->
+    <div class="col-right">
+      <div class="panel" id="fieldPanel">
+        <h2><span class="num">3</span>XI em campo (<span id="tacticLabel">4-3-3</span>)</h2>
+        <div class="pitch-wrap" id="pitchWrap"></div>
+        <div class="xi" id="xiBox"></div>
+      </div>
+
+      <div class="panel hidden" id="simPanel">
+        <h2><span class="num">5</span>Campanha</h2>
+        <div id="hud">
+          <div>VITÓRIAS<b id="hudW">0</b></div>
+          <div>GOLS PRÓ<b id="hudGF">0</b></div>
+          <div>GOLS SOFRIDOS<b id="hudGA">0</b></div>
+        </div>
+        <div id="groupStageContainer"></div>
+        <div id="bracketContainer"></div>
+        
+        <!-- BOTAO DE PRÓXIMA ETAPA -->
+        <div class="control-row hidden" id="matchControlRow">
+          <button class="primary" id="nextMatchBtn">Avançar para o Próximo Jogo</button>
+        </div>
+
+        <div class="matches" id="matchesBox"></div>
+        <div id="result" class="hidden"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>Bernabéu Eleven é um projeto de testes de TSI IFPE Igarassu desenvolvido por Tadeu Henrique.</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
