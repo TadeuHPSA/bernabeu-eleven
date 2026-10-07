@@ -1,36 +1,58 @@
-# Bernabéu Eleven — Em Busca da Glória
+<div align="center">
 
-Simulador de draft e campanha da UEFA Champions League com o Real Madrid. Monte um XI inicial histórico misturando elencos de diferentes gerações e leve o time da fase de grupos até a final.
+# Bernabéu Eleven — The Quest for Glory
 
-🔗 **Jogue agora:** [bernabeuelevenv1.netlify.app](https://bernabeuelevenv1.netlify.app/)
+A UEFA Champions League draft and campaign simulator featuring **Real Madrid**. Build a historic starting XI by mixing squads from different generations, then lead your team from the group stage all the way to the final.
 
-## Como funciona
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![Netlify](https://img.shields.io/badge/Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white)
 
-1. A cada rodada do draft, um elenco campeão do Real Madrid é sorteado
-2. Você escolhe um jogador para a posição livre, montando o 4-3-3
-3. Define o capitão, o batedor de pênalti e o batedor de falta
-4. Simula a campanha: fase de grupos, mata-mata e final
+### [Play now](https://bernabeuelevenv1.netlify.app/)
 
-## Funcionalidades
+</div>
 
-- Draft com sorteio de elencos históricos
-- Dificuldades: Fácil, Médio, Difícil e Lendário
-- Modo Clássico (com ratings) e modo Almanaque (atributos ocultos)
-- Mata-mata em ida e volta, com prorrogação e pênaltis
-- Final em jogo único
-- Craque da Partida (MVP) calculado pelos gols e cartões
-- Cobranças de falta baseadas na habilidade dos jogadores
-- Quests de treinador que mudam a cada reinício
+---
 
-## Tecnologias
+## Table of Contents
+
+- [How It Works](#how-it-works)
+- [Features](#features)
+- [Technologies](#technologies)
+- [Project Structure](#project-structure)
+- [How to Run](#how-to-run)
+- [Roadmap](#roadmap)
+- [Notes](#notes)
+- [Author](#author)
+
+## How It Works
+
+1. In each draft round, a champion Real Madrid squad is drawn at random.
+2. You pick one player for the open position, building a **4-3-3** lineup.
+3. You choose the captain, the penalty taker, and the free-kick taker.
+4. You simulate the campaign: group stage, knockout rounds, and the final.
+
+## Features
+
+- Draft system that draws squads from different eras of the club
+- Four difficulty levels: Easy, Medium, Hard, and Legendary
+- **Classic mode** (visible ratings) and **Almanac mode** (hidden attributes)
+- Two-legged knockout ties, with extra time and penalty shootouts
+- Single-match final
+- Man of the Match (MVP) calculated from goals and cards
+- Free kicks based on each player's skill
+- Coach quests that change on every restart
+
+## Technologies
 
 - HTML5
 - CSS3
-- JavaScript (sem frameworks)
+- JavaScript (vanilla, no frameworks)
 
-## Estrutura
+## Project Structure
 
-```
+```text
 bernabeu-eleven/
 ├── index.html
 ├── README.md
@@ -40,23 +62,34 @@ bernabeu-eleven/
     └── script.js
 ```
 
-## Como rodar
+## How to Run
+
+There is nothing to install.
 
 ```bash
+# Clone the repository
 git clone https://github.com/TadeuHPSA/bernabeu-eleven.git
+
+# Navigate to the directory
 cd bernabeu-eleven
 ```
 
-Abra o `index.html` no navegador. Não precisa instalar nada.
+Then open `index.html` in any modern web browser, or play the hosted version [here](https://bernabeuelevenv1.netlify.app/).
 
-## Observações
+## Roadmap
 
-- O login e as salas multiplayer são apenas demonstração visual; ainda não há servidor.
-- Projeto independente, sem fins lucrativos, feito para estudo e inspirado no jogo 7x0. O escudo e o nome do Real Madrid pertencem aos seus respectivos titulares.
+- [ ] Real login and online multiplayer rooms (requires a back-end)
+- [ ] More historic squads and players
+- [ ] Responsive layout improvements for mobile devices
 
-## Autor
+## Notes
+
+- The login screen and multiplayer rooms are a visual demo only; there is no server yet.
+- This is an independent, non-profit project made for study purposes and inspired by the game 7x0. The Real Madrid crest and name belong to their respective rights holders.
+
+## Author
 
 **Tadeu Henrique**
-Estudante de TSI, IFPE Igarassu
+Systems for the Internet (TSI) student at IFPE Igarassu
 
-[GitHub](https://github.com/TadeuHPSA)
+[GitHub](https://github.com/TadeuHPSA) · [LinkedIn](https://www.linkedin.com/in/thpsa-dev)
